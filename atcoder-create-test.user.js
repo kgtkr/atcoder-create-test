@@ -38,7 +38,7 @@
         function (cases) { return "===\n---\n" + cases.map(function (_a) {
             var input = _a[0], output = _a[1];
             return input + "\n---\n" + output;
-        }).join("===\n"); }
+        }).join("\n==="); }
     ];
     var pre = null;
     var texts = [];

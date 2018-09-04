@@ -38,7 +38,7 @@
 
   const formatters = [
     (cases: string[][]) => "tests! {\n" + cases.map(([input, output], i) => `    test${i + 1}: ${JSON.stringify(input)} => ${JSON.stringify(output)},`).join("\n") + "\n}",
-    (cases: string[][]) => "===\n---\n" + cases.map(([input, output]) => input + "\n---\n" + output).join("===\n")
+    (cases: string[][]) => "===\n---\n" + cases.map(([input, output]) => input + "\n---\n" + output).join("\n===")
   ];
 
   let pre = null;
