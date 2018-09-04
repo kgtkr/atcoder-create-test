@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AtCoder Create Test
 // @namespace    atcoder_create_test
-// @version      0.3.1
+// @version      0.3.2
 // @description  AtCoder Beta版のテストケースを自動生成
 // @author       kgtkr
 // @match        https://beta.atcoder.jp/contests/*/tasks/*
@@ -38,7 +38,7 @@
         function (cases) { return "===\n---\n" + cases.map(function (_a) {
             var input = _a[0], output = _a[1];
             return input + "\n---\n" + output;
-        }).join("\n==="); }
+        }).join("\n===\n"); }
     ];
     var pre = null;
     var texts = [];

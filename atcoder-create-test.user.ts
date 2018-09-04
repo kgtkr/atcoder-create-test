@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AtCoder Create Test
 // @namespace    atcoder_create_test
-// @version      0.3.1
+// @version      0.3.2
 // @description  AtCoder Beta版のテストケースを自動生成
 // @author       kgtkr
 // @match        https://beta.atcoder.jp/contests/*/tasks/*
@@ -38,7 +38,7 @@
 
   const formatters = [
     (cases: string[][]) => "tests! {\n" + cases.map(([input, output], i) => `    test${i + 1}: ${JSON.stringify(input)} => ${JSON.stringify(output)},`).join("\n") + "\n}",
-    (cases: string[][]) => "===\n---\n" + cases.map(([input, output]) => input + "\n---\n" + output).join("\n===")
+    (cases: string[][]) => "===\n---\n" + cases.map(([input, output]) => input + "\n---\n" + output).join("\n===\n")
   ];
 
   let pre = null;
