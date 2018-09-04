@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AtCoder Create Test
 // @namespace    atcoder_create_test
-// @version      0.2
+// @version      0.3
 // @description  AtCoder Beta版のテストケースを自動生成
 // @author       kgtkr
 // @match        https://beta.atcoder.jp/contests/*/tasks/*
