@@ -36,6 +36,11 @@
     });
   }
 
+  const formatters = [
+    (cases: string[][]) => "tests! {\n" + cases.map(([input, output], i) => `    test${i + 1}: ${JSON.stringify(input)} => ${JSON.stringify(output)},`).join("\n") + "\n}",
+    (cases: string[][]) => "===\n---\n" + cases.map(([input, output]) => input + "\n---\n" + output).join("===\n")
+  ];
+
   let pre = null;
   const texts = [];
   for (let i = 0; pre = document.querySelector<HTMLElement>(`.lang-ja #pre-sample${i}`); i++) {
@@ -50,8 +55,7 @@
 
   if (texts.length !== 0 && texts.length % 2 === 0) {
     const cases = unflatten(texts, 2);
-    const rustCode = "tests! {\n" + cases.map(([input, output], i) => `    test${i + 1}: ${JSON.stringify(input)} => ${JSON.stringify(output)},`).join("\n") + "\n}";
-    const haskellCode = "===\n---\n" + cases.map(([input, output]) => input + "\n---\n" + output).join("===\n");
-    document.getElementById("task-statement")!.insertAdjacentHTML('afterend', `<textarea rows="10" cols="64">${escapeHtml(rustCode)}</textarea><textarea rows="10" cols="64">${escapeHtml(haskellCode)}</textarea>`);
+    const html = formatters.map(f => f(cases)).map(x => `<textarea rows="10" cols="64">${escapeHtml(x)}</textarea>`).join("");
+    document.getElementById("task-statement")!.insertAdjacentHTML('afterend', html);
   }
 })();
