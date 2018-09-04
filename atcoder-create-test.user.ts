@@ -38,7 +38,7 @@
 
   let pre = null;
   const texts = [];
-  for (let i = 0; pre = document.querySelector(`.lang-ja #pre-sample${i}`); i++) {
+  for (let i = 0; pre = document.querySelector<HTMLElement>(`.lang-ja #pre-sample${i}`); i++) {
     texts.push(pre.innerText.trim());
   }
 
