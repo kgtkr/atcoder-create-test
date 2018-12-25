@@ -41,17 +41,16 @@
     (cases: string[][]) => "===\n---\n" + cases.map(([input, output]) => input + "\n---\n" + output).join("\n===\n")
   ];
 
-  let pre = null;
-  const texts = [];
-  for (let i = 0; pre = document.querySelector<HTMLElement>(`.lang-ja #pre-sample${i}`); i++) {
-    texts.push(pre.innerText.trim());
-  }
-
-  if (texts.length === 0) {
-    for (let i = 0; pre = document.getElementById(`pre-sample${i}`); i++) {
-      texts.push(pre.innerText.trim());
+  const texts = Array.from(document.getElementsByClassName("part")).filter(x => {
+    const els = x.getElementsByTagName("h3");
+    if (els.length !== 0) {
+      const el = els[0];
+      const text = el.innerText;
+      return text.includes("入力例") || text.includes("出力例");
+    } else {
+      return false;
     }
-  }
+  }).map(x => x.getElementsByTagName("pre")[0].innerText);
 
   if (texts.length !== 0 && texts.length % 2 === 0) {
     const cases = unflatten(texts, 2);
