@@ -2,7 +2,7 @@
 // @name         AtCoder Create Test
 // @namespace    atcoder_create_test
 // @version      0.3.3
-// @description  AtCoder版のテストケースを自動生成
+// @description  AtCoderのテストケースを自動生成
 // @author       kgtkr
 // @match        https://atcoder.jp/contests/*/tasks/*
 // ==/UserScript==
